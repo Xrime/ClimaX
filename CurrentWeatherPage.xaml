@@ -1,0 +1,130 @@
+﻿<Page x:Class="ProjectX.CurrentWeatherPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Current Weather">
+
+    <!-- Gradient Background -->
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#4facfe" Offset="0.0"/>
+                <!-- Blue -->
+                <GradientStop Color="#00f2fe" Offset="1.0"/>
+                <!-- Cyan -->
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Make page scrollable -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Margin="0,20">
+
+                <!-- Rounded Search Box -->
+                <Grid Margin="0,0,0,20">
+                    <Border CornerRadius="20" Background="White" Height="40">
+                        <TextBox x:Name="SearchBox"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 FontSize="16"
+                                 Padding="10,5"
+                                 VerticalContentAlignment="Center"
+                                 Foreground="Black"
+                                 TextChanged="SearchBox_TextChanged"
+                                 KeyDown="SearchBox_KeyDown"/>
+                    </Border>
+
+                    <TextBlock x:Name="PlaceholderText"
+                               Text="Enter city..."
+                               Foreground="Gray"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               Margin="12,0,0,0"
+                               IsHitTestVisible="False"/>
+
+                    <Image Source="Assets/search.png"
+                           Width="24" Height="24"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,10,0"
+                           MouseDown="SearchIcon_MouseDown"/>
+                </Grid>
+
+                <!-- Weather Icon -->
+                <Image x:Name="WeatherIcon"
+                       Source="Assets/weather.png"
+                       Width="120" Height="120"
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"/>
+
+                <!-- City and Temp -->
+                <TextBlock x:Name="CityNameText"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Text="City Name"
+                           HorizontalAlignment="Center"/>
+                <TextBlock x:Name="TemperatureText"
+                           FontSize="40"
+                           FontWeight="SemiBold"
+                           Foreground="White"
+                           Margin="0,5,0,15"
+                           HorizontalAlignment="Center"/>
+
+                <!-- Description -->
+                <TextBlock x:Name="DescriptionText"
+                           FontSize="18"
+                           FontStyle="Italic"
+                           Foreground="White"
+                           Margin="0,0,0,20"
+                           HorizontalAlignment="Center"/>
+
+                <!-- Details with Icons -->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <!-- Feels Like -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/temperature.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="FeelsLikeText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Humidity -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/humidity.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="HumidityText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Wind -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/wind.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="WindText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Visibility -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/visibility.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="VisibilityText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Pressure -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/pressure.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="PressureText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Sunrise -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/sunrise.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="SunriseText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Sunset -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Image Source="Assets/sunset.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <TextBlock x:Name="SunsetText" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,100 @@
+﻿<Page x:Class="ProjectX.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <!-- 🌈 Gradient Background -->
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#00c6ff" Offset="0.0"/>
+            <GradientStop Color="#0072ff" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- ⚙️ Page Title -->
+            <TextBlock Text="Settings"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       Margin="0,0,0,20"/>
+
+            <!-- 🌍 Default Location -->
+            <StackPanel>
+                <TextBlock Text="Default Location"
+                           Foreground="White"
+                           FontSize="16"
+                           Margin="0,0,0,5"/>
+                <TextBox x:Name="DefaultLocationBox"
+                         Width="250"
+                         Height="35"
+                         Padding="8"
+                         BorderThickness="0"
+                         FontSize="14"
+                         Background="White"/>
+            </StackPanel>
+
+            <!-- 🌡️ Temperature Unit -->
+            <StackPanel>
+                <TextBlock Text="Temperature Unit"
+                           Foreground="White"
+                           FontSize="16"
+                           Margin="0,10,0,5"/>
+                <ComboBox x:Name="UnitSelector"
+                          Width="150"
+                          Height="35"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="Celsius (°C)" IsSelected="True"/>
+                    <ComboBoxItem Content="Fahrenheit (°F)"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- ⏰ Refresh Interval -->
+            <StackPanel>
+                <TextBlock Text="Refresh Interval (minutes)"
+                           Foreground="White"
+                           FontSize="16"
+                           Margin="0,10,0,5"/>
+                <Slider x:Name="RefreshSlider"
+                        Minimum="5"
+                        Maximum="60"
+                        Value="15"
+                        TickFrequency="5"
+                        IsSnapToTickEnabled="True"
+                        Width="250"/>
+                <TextBlock x:Name="RefreshValue"
+                           Text="15 min"
+                           Foreground="White"
+                           FontSize="14"
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- 💾 Save Button -->
+            <Button Content="Save Settings"
+                    Width="200"
+                    Height="40"
+                    Margin="0,20,0,0"
+                    Background="#0078D7"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Click="SaveSettings_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                Padding="10,5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

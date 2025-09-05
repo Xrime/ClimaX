@@ -1,0 +1,31 @@
+﻿<Window x:Class="ProjectX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClimaX" Height="600" Width="950" Background="#1E1E2E">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <StackPanel Background="#2C3E50" Grid.Column="0" VerticalAlignment="Stretch">
+            <TextBlock Text="ClimaX"
+                       Foreground="White"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Margin="20"
+                       HorizontalAlignment="Center"/>
+            <Separator Margin="10"/>
+
+            <Button Content="🌤 Current Weather" Click="CurrentWeather_Click" Margin="10" Padding="10"/>
+            <Button Content="📊 Forecast" Click="Forecast_Click" Margin="10" Padding="10"/>
+            <Button Content="⭐ Favorites" Click="Favorites_Click" Margin="10" Padding="10"/>
+            <Button Content="⚙ Settings" Click="Settings_Click" Margin="10" Padding="10"/>
+            <Button Content="ℹ About" Click="About_Click" Margin="10" Padding="10"/>
+        </StackPanel>
+
+        <!-- Main Content Frame -->
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
